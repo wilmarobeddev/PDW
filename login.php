@@ -17,18 +17,32 @@ $rutaimg = "images/icono.png"
       ?>
 
       <div class="container-fluid " style="width:600px; padding:0px; margin-top:2%; margin-right:3%;">
+            <?php if (isset($_POST["sublogin"])) {    ?>
 
+                  <div class="modal-dialog">
+                        <div class="modal-content">
+                              <div class="modal-header">
+                                    <h5 class="modal-title">Mensaje de alerta</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                    <a type="button" class="close" href="index.php">&times;</a>
+                              </div>
+                              <div class="modal-body alert alert-danger">
+                                    <?php if ($message != "") {
+                                          echo $message;
+                                    } ?>
+                              </div>
+                              <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+                                    <a type="button" class="btn btn-danger" href="index.php">Cerrar!</a>
+                              </div>
+                        </div>
+                  </div>
+
+            <?php
+            } ?>
 
             <div class="container-fluid" style=" background-color:transparent; color:black; margin:auto; padding:5px; margin-bottom:0px;">
-                  <?php if (isset($_POST["sublogin"])) {    ?>
-                        <div class="alert alert-danger" role="alert">
-                              <button type="button" class="close" data-dismiss="alert">&times;</button>
-                              <?php if ($message != "") {
-                                    echo $message;
-                              } ?>
-                        </div>
-                  <?php
-                  } ?>
+
                   <div class="row" style="padding:0;">
                         <div class="col col-sm-4"></div>
                         <img class="col img" src="<?php echo $rutaimg; ?>" style="margin:auto; width: 20px;;">
@@ -39,13 +53,13 @@ $rutaimg = "images/icono.png"
 
                         <div class="row" style="color:black; margin:auto; padding:18px; width: 450px; background-color:rgb(255,255,255, 0.9);">
                               <div class="col-12">
-                                    <label class="row justify-content-start" style="margin:auto;">User o email :</label>
-                                    <input class="form-control" placeholder="Aqui tu usuario" name="userName" type="text" required>
+                                    <label class="row justify-content-start" style="margin:auto;">Usuario o Correo electronico:</label>
+                                    <input class="form-control" placeholder="Digita aqui tu usuario o correo" name="userName" type="text" required>
                               </div>
 
                               <div class="col-12 form"><br>
-                                    <label class="row justify-content-start" style="margin:auto;">Password :</label>
-                                    <input class="form-control" placeholder="Contraseña" name="password" type="password" required> <br>
+                                    <label class="row justify-content-start" style="margin:auto;">Contraseña :</label>
+                                    <input class="form-control" placeholder="Digitar Contraseña" name="password" type="password" required> <br>
 
                                     <button type="submit" class="btn btn-warning" name="sublogin" id="sublogin">Iniciar Sesión</button>
 
@@ -89,6 +103,7 @@ $rutaimg = "images/icono.png"
                               </div>
                         </div>
                   </form>
+
 
             </div>
             <!---< ?php include("include/footer.php") ?> --->

@@ -34,13 +34,16 @@ $hoy = date("Y-m-d");
                     <div class="form-group">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                     </div>
+                    <div class="form-group">
+                        <input type="hidden" name="estado" value="Activo">
+                    </div>
                     <div class="row">
                         <div class="form-group col-4 content-justify">
-                            <label for="">Nombre</label>
+                            <label for="">Nombres</label>
                             <input class="form-control form-control-lg" type="text" autocomplete="off"  required name="firstname" value="<?php echo $nombre ?>">
                         </div>
                         <div class="form-group col-4 content-justify">
-                            <label for="">Apellido</label>
+                            <label for="">Apellidos</label>
                             <input class="form-control form-control-lg" type="text" autocomplete="off" required name="lastname" value="<?php echo $apellido ?>">
                         </div>
                         <div class="form-group col-4 content-justify">
@@ -50,11 +53,11 @@ $hoy = date("Y-m-d");
                     </div>
                     <div class="row">
                         <div class="form-group col-8">
-                            <label for="">Email</label><br>
+                            <label for="">Correo electronico</label><br>
                             <input class="form-control form-control-lg" type="email" autocomplete="off" required name="user_email" value="<?php echo $email; ?>" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
                         </div>
                         <div class="form-group col-4">
-                            <label for="">Pass</label><br>
+                            <label for="">Contraseña</label><br>
                             <input class="form-control " autocomplete="off" required type="password" pattern=".{6,}" title="New Password ( min . 6 caracteres)" name="user_password_hash" value="<?php echo $pass ?>">
                         </div>
                     </div>
@@ -69,13 +72,6 @@ $hoy = date("Y-m-d");
                             </select>
                         </div>
                             <input class="form-control form-control-lg" type="hidden" required name="date_added" value="<?php echo $hoy; ?>" max="<?php echo date('Y-m-d'); ?>">
-                        <div class="form-group col-4 ">
-                            <label type="hidden" >Estado</label>
-                            <select name="estado" class="form-control form-control-lg" required>
-                                <option required value="Activo">Activo</option>
-                            </select>
-                        </div>
-
                     </div>
                     <input Class="btn btn-warning btn-sm" name="procesanuevo" type="submit" value="Registrar">
                 </form>

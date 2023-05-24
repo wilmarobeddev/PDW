@@ -35,10 +35,10 @@ $rutaimage = "images/logobanner.png";
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                               <a class="dropdown-item" href="?.php">
                                     <span style="padding:3px;" class="glyphicon glyphicon-tag"></span>
-                                    Historico jobs</a>
+                                    Historial de servicios</a>
                               <a class="dropdown-item" href="?.php">
                                     <span style="padding:3px;" class="glyphicon glyphicon-tag"></span>
-                                    Puntaje</a>
+                                    Mejor Calificados</a>
                         </div>
                   </div>
             </div>

@@ -78,7 +78,7 @@ if (isset($_POST['procesaeditar'])) {
     $result = mysqli_query($conn, $sql);
 
     if (isset($result)) {
-        $sucessmsj = " Se ejecuto la operacion con éxito.";
+        $sucessmsj = " Se ha registrado con éxito, ahora puede ingresar con sus credenciales.";
     } else if (!isset($result)) {
         $alerterror = "Lo sentimos , el registro falló. Por favor, regrese y vuelva a intentarlo.";
     } else {

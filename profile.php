@@ -121,10 +121,10 @@
                                 </div>
                                 <input type="hidden" name="userid" value="<?php echo $userid; ?>">
                                 <div class="form-group content-justify">
-                                    <label for="">New Password</label>
+                                    <label for="">Nueva Contraseña</label>
                                     <input class="form-control col" required type="password" name="newpass" pattern=".{6,}" title="New Password ( min . 6 caracteres)">
                                     <br>
-                                    <label for="">Repetir Password</label>
+                                    <label for="">Repetir Contraseña</label>
                                     <input class="form-control col" required type="password" name="repeatpass2" pattern=".{6,}" title="Repite Password ( min . 6 caracteres)">
                                 </div>
                                 <center><input Class="btn btn-warning" name="postpw" type="submit" value="Cambiar contraseña"></center>
