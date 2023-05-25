@@ -24,7 +24,7 @@ if (isset($_POST['procesanuevo'])) {
         try {
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                $sucessmsj = "Se ejecutó la operación con éxito.";
+                $sucessmsj = "Se registro con éxito, ahora puede acceder al portal.";
             } else {
                 $alerterror = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }

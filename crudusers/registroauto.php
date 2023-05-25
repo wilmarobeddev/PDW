@@ -66,7 +66,7 @@ $hoy = date("Y-m-d");
                             <label for="" type="hidden">Perfil</label><br>
                             <!--<input type="text" required name="id_tipo" value="< ?php echo $rol; ?>"> -->
                             <select name="id_tipo" class="form-control form-control-lg" required>
-                                <option disabled selected value>Select</option>
+                                <option disabled selected value>Seleccionar</option>
                                 <option required value="2">Colaborador</option>
                                 <option required value="3">Usuario</option>
                             </select>
