@@ -3,7 +3,7 @@ body
     {
     height: 100%;
     background-repeat: no-repeat;
-    background: url(../images/fondo_login.jpg) no-repeat center fixed;
+    background: whitesmoke;
     background-size: 100%;
     position:auto;
     }

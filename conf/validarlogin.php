@@ -4,10 +4,9 @@ $message = "";
 if (count($_POST) > 0) {
     $isSuccess = 0;
     $userName = $_POST['userName'];
-    $email = $_POST['userName'];
-    $sql = "SELECT * FROM users WHERE user_name = ? OR user_email = ?";
+    $sql = "SELECT * FROM users WHERE user_name = ?";
     $statement = $conn->prepare($sql);
-    $statement->bind_param('ss', $userName, $email);
+    $statement->bind_param('s', $userName);
     $statement->execute();
     $result = $statement->get_result();
     while ($row = $result->fetch_assoc()) {
@@ -19,19 +18,27 @@ if (count($_POST) > 0) {
                 $nombre = $row["firstname"];
                 $apellido = $row["lastname"];
                 $userid = $row["user_id"];
-                $nombrecompleto = $nombre." ".$apellido;
+                $nombrecompleto = $nombre . " " . $apellido;
+                
+                // Verificar el estado del usuario
+                $estado = $row["estado"];
+                if ($estado == "Activo") {
+                    // Usuario activo, continuar con el inicio de sesión
+                    session_start();
+                    $_SESSION["loginuser"] = $userName;
+                    $_SESSION["rol"] = $user_role;
+                    $_SESSION["nombrecompleto"] = $nombrecompleto;
+                    $_SESSION["id"] = $userid;
+                    header("Location: ./home.php");
+                } else {
+                    // Usuario inactivo, mostrar mensaje de error
+                    $message = "El usuario está inactivo. Contacta al administrador para obtener acceso.";
+                }
             }
         }
     }
     if ($isSuccess == 0) {
         $message = "Usuario o Contraseña Invalido!";
-    } else {
-        session_start();
-        $_SESSION["loginuser"] = $userName;
-        $_SESSION["rol"] = $user_role;
-        $_SESSION["nombrecompleto"] = $nombrecompleto;
-        $_SESSION["id"] = $userid;
-        header("Location:  ./home.php");
     }
 }
 

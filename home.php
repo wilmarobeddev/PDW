@@ -1,5 +1,4 @@
-    <html lang="en">
-
+<html lang="en">
     <head>
         <?php include("include/header.php"); ?>
         <title>Home</title>
@@ -9,9 +8,17 @@
     include("conf/sessionstart.php");
     ?>
 
+    <script>// Establece la conexión con la base de datos (reemplaza los valores según tu configuración)
+ // Realiza la consulta a la base de datos
+   $query = $conexion->query("SELECT * FROM oferts");
+
+  // Almacena los resultados en un array
+   $datos = $query->fetchAll(PDO::FETCH_ASSOC);
+  </script>
+
     <body>
     <!----INICIO DE CONTAINER FLUID ppal --->
-    <div class="container-fluid" style="margin: auto; max-width: 100%; max-height:100%; padding: 0 10px;">
+    <div class="container-fluid" style="margin: auto; max-width: 100%; max-height:100%; padding: 0 10px;" bac>
         <!-- contenido del contenedor aquí -->
         <!----INICIO DE DIV BANNER --->
         <?php include('include/banner.php'); ?>
@@ -32,31 +39,54 @@
                         </div>
 
                         <div class="col-3">
-                        <b class="alert-heading d-flex p-6">Bienvenido a Prodowork </b>
+                            
+                        <b class="alert-heading d-flex p-6"> 
+                                          <?php
+                                          $saludo = $_SESSION["nombrecompleto"];
+                                          echo $saludo;
+                                          ?> Bienvenido a Prodowork </b>
                         </div>
-                        
-                   
-
                 </div>
                 <!--FIN DIV TITULOS--->
                 <!--DIV CONTENIDO SCROLL --->
-                <div class="boxscrollhome" style="padding:0px;">
-                    <center>
-                        <!--ALERTA DANGER DOCUMENTOS VENCIDOS --->
-                        <img src="images/make.jpg" />
-                    </center>
-                </div>
-            </div>
+                <!-- fondo de inicio con mini imagenes cambiar por carrusel o cargar los servicios que se van creando-->
 
-            <div style="margin-top: 8px;"></div>
+                 <!-- fondo de inicio con mini imagenes cambiar por carrusel o cargar los servicios que se van creando-->
+                
+            </div>
+            <br>
+            <?php
+               // Establece la conexión con la base de datos (reemplaza los valores según tu configuración)
+                   $conexion = new PDO("mysql:host=localhost;dbname=prodowork", "root", "");
+
+                  // Realiza la consulta a la base de datos para obtener los datos de la tabla "oferts"
+                     $query = $conexion->query("SELECT descripcion, tipo FROM oferts");
+
+                  // Almacena los resultados en un array
+                 $ofertas = $query->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            
+    <div class="card" style=" justify-content: center" >
+        <?php foreach ($ofertas as $oferta): ?>
+        <div class="card bg-light" >
+          <div class="card">
+           <div class="card-body">
+            <h5  class="card-title"><?php echo $oferta['tipo']; ?></h5>
+              <p class="card-text"><?php echo $oferta['descripcion']; ?></p>
+               <p class="card-text"><small class="text-muted"><a href="#" class="btn btn-primary">Contactar</a></small></p>
+            </div>
+            
+      </div>
+      </div>
+      <?php endforeach; ?>
+     </div>
             <!----FIN DE ROW ppal --->
             <!----DIV DE FOOTER ppal --->
             <!---< ?php include("include/footer.php"); ?> -->
             <!----FIN DIV DE FOOTER--->
 
-        </div>
         <!----FIN DE CONTAINER FLUID MAYOR--->
 
     </body>
-
-    </html>
+    </head>
+</html>

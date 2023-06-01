@@ -7,7 +7,9 @@ body
     background-size: 100%;
     position:auto;
     }
-
+    .fondo-blanco {
+        background-color: white;
+      }
 .bodylogin
     {
     height: 100%;

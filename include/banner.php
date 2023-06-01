@@ -1,7 +1,12 @@
 <?php
 $rutaimage = "images/logobanner.png";
 ?>
-<!----DIV BANNER --->
+<!----DIV BANNER 
+usuarios 
+1= Administrador
+2= Prestador De Servicio
+3= Contratista
+--->
 <div class="container-fluid" style="background-color: rgb(23, 32, 42, 0.99); padding:10px; border-bottom:solid orange 3px;">
       <div class="row">
             <a class="col-1" style="margin:0;" title="Home" href="home.php"> <img src="<?php echo $rutaimage ?>" width="85"> </a>
@@ -9,6 +14,10 @@ $rutaimage = "images/logobanner.png";
 
             <div class="btn-group justify-content-center col" role="group" aria-label="Button group with nested dropdown" style="margin:auto; margin-left:15%;">
 
+                  <?php
+                  if (!isset($_SESSION['loginuser']) || empty($_SESSION['loginuser']) || $_SESSION['rol'] == 2) {
+                  ?>
+                       
                   <a type="button" class="btn btn-secondary" style="color:white;" href="?.php">
                         <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Domicilios
                   </a>
@@ -19,15 +28,20 @@ $rutaimage = "images/logobanner.png";
                         <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Mundanzas
                   </a>
                   <?php
+                  }
+                  ?>
+                  <?php
                   if (!isset($_SESSION['loginuser']) || empty($_SESSION['loginuser']) || $_SESSION['rol'] == 1) {
                   ?>
                         <a type="button" class="btn btn-secondary" style="color:white;" href="users.php">
                               <span style="padding:3px;" class="glyphicon glyphicon-user"></span>Usuarios
                         </a>
+                        <a type="button" class="btn btn-secondary" style="color:white;" href="createof.php">
+                              <span style="padding:3px;" class="glyphicon glyphicon-list-alt"></span>Crear Oferta
+                        </a>
                   <?php
                   }
                   ?>
-
                   <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Mis preferencias

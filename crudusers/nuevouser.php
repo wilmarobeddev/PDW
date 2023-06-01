@@ -76,7 +76,7 @@ $hoy = date("Y-m-d");
                             <input class="form-control form-control-lg" type="hidden" required name="date_added" value="<?php echo $hoy; ?>" max="<?php echo date('Y-m-d'); ?>">
 
                     </div>
-                    <input Class="btn btn-primary btn-sm" name="procesanuevo" type="submit" value="Registrar">
+                    <input Class="btn btn-primary btn-sm" name="proces" type="submit" value="Registrar">
                 </form>
             </div>
         </div>
