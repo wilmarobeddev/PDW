@@ -49,7 +49,7 @@
                             <select name="id_tipo" class="form-control form-control-lg" required>
                                 <option disabled selected value>Seleccionar</option>
                                 <option required value="2">Prestador De Servicio</option>
-                                <option required value="3">Contratista</option>
+                                <option required value="3">Cliente</option>
                             </select>
                         </div>
                         <input class="form-control form-control-lg" type="hidden" required name="date_added" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">

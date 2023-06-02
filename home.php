@@ -28,10 +28,10 @@ include("conf/sessionstart.php");
                 <div class="col-3">
                     <b class="alert-heading d-flex p-6">Inicio</b>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                 </div>
 
-                <div class="col-3">
+                <div class="col-4">
                     <b class="alert-heading d-flex p-6">
                         <?php
                         $saludo = $_SESSION["nombrecompleto"];
@@ -42,19 +42,9 @@ include("conf/sessionstart.php");
             </div>
             <div class="boxscroll">
                 <!--FIN DIV TITULOS--->
-                <!--DIV CONTENIDO SCROLL --->
-                <!-- fondo de inicio con mini imagenes cambiar por carrusel o cargar los servicios que se van creando-->
-
-                <!-- fondo de inicio con mini imagenes cambiar por carrusel o cargar los servicios que se van creando-->
                 <?php
-                // Establece la conexión con la base de datos (reemplaza los valores según tu configuración)
-                $conexion = new PDO("mysql:host=localhost;dbname=prodowork", "root", "");
-
-                // Realiza la consulta a la base de datos para obtener los datos de la tabla "oferts"
-                $query = $conexion->query("SELECT descripcion, tipo FROM oferts");
-
-                // Almacena los resultados en un array
-                $ofertas = $query->fetchAll(PDO::FETCH_ASSOC);
+                $consulta = "SELECT descripcion, tipo FROM oferts";
+                $ofertas = mysqli_query($conn, $consulta);
                 ?>
 
                 <div class="card" style=" justify-content: center">
@@ -71,12 +61,6 @@ include("conf/sessionstart.php");
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <!----FIN DE ROW ppal --->
-                <!----DIV DE FOOTER ppal --->
-                <!---< ?php include("include/footer.php"); ?> -->
-                <!----FIN DIV DE FOOTER--->
-
-                <!----FIN DE CONTAINER FLUID MAYOR--->
             </div>
         </div>
     </div>

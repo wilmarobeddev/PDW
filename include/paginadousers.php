@@ -117,13 +117,13 @@ if (!isset($con)) {
 
                     $perfil = "Invalido";
                     if ($tipo == 1) {
-                        $perfil = "Admin";
+                        $perfil = "Administrador";
                     }
                     if ($tipo == 2) {
-                        $perfil = "Auditor";
+                        $perfil = "Prestador Servicio";
                     }
                     if ($tipo == 3) {
-                        $perfil = "Inspector";
+                        $perfil = "Cliente";
                     }
 
                     $cargardatos = $userid . "||" . $name . "||" . $lastname . "||" . $username . "||" . $email . "||" . $tipo . "||" . $dateadd . "||" . $status . "||" . $passcifred;
