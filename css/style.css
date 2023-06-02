@@ -7,9 +7,7 @@ body
     background-size: 100%;
     position:auto;
     }
-    .fondo-blanco {
-        background-color: white;
-      }
+
 .bodylogin
     {
     height: 100%;
@@ -25,14 +23,22 @@ td
 .boxscroll
 {
     padding:0px;
-    height: 62%;
+    height: 75%;
+    width: auto;
+    background:white;
+    overflow-y: auto;
+}
+.boxscrollpag
+{
+    padding:0px;
+    height: 63%;
     width: auto;
     background:white;
 }
 .boxscrollhome
 {
     padding:0px;
-    height: 73%;
+    height: 75%;
     width: auto;
     background:white;
 }

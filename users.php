@@ -53,8 +53,6 @@
                     <div class="btn-group">
                         <input class="form-control" required name="PalabraClave" id="q" type="text" placeholder="username o nombres a buscar" onkeyup='load(1);'>
                     </div>
-
-                   
                 </form>
 
             </div>
@@ -62,13 +60,16 @@
 
             <!-- Modales CRUD-->
             <?php
-            include("crudusers/procesauser.php");
-            include("crudusers/nuevouser.php");
-            include("crudusers/editaruser.php");
+            include("crudusers/formnuevouser.php");
+            //include("crudusers/editaruser.php");
             include("crudusers/leeruser.php");
             include("ajax/pagination.php");
-            include("include/paginadousers.php");
             ?>
+            <div id="tabla">
+                <?php
+                include("include/paginadousers.php");
+                ?>
+            </div>
 
         </div>
         <!----FIN DE ROW ppal --->
@@ -80,3 +81,68 @@
 </body>
 
 </html>
+
+
+<script src="js/funcionesusers.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#guardar').click(function() {
+
+            var placa = $('#placa').val();
+            var nomdoc = $('#nombredoc').val();
+            var vence = $('#vence').val();
+            // Obtener la fecha actual
+            var fechaActual = new Date();
+            fechaActual.setDate(fechaActual.getDate() - 1);
+
+            // Convertir la fecha de vencimiento a un objeto Date
+            var fechaVencimiento = new Date(vence);
+
+            // Validar que los campos estén seleccionados
+            if (placa === '') {
+                alertify.error('Por favor, complete el campo Placa.');
+                $('#placa').focus(); // Enfocar el campo Placa
+                return false
+            } else if (nomdoc === '') {
+                alertify.error('Por favor Selecione un documento.');
+                $('#nombredoc').focus(); // Enfocar el campo Kilometraje
+                return false
+            } else if (vence === '') {
+                alertify.error('Por favor Selecione una fecha de vencimiento.');
+                $('#vence').focus(); // Enfocar el campo Kilometraje
+                return false
+            } else if (fechaVencimiento < fechaActual) {
+                alertify.error('La fecha de vencimiento debe ser mayor o igual a la fecha actual.');
+                return false;
+            } else {
+                // Los campos están seleccionados, puedes ejecutar la acción
+                agregar();
+            }
+        });
+
+        $('#update').click(function() {
+
+            let placa = $('#placa_e').val();
+            var vence = $('#vence_e').val();
+            // Obtener la fecha actual
+            var fechaActual = new Date();
+            fechaActual.setDate(fechaActual.getDate() - 1);
+
+            // Convertir la fecha de vencimiento a un objeto Date
+            var fechaVencimiento = new Date(vence);
+
+
+            if (placa === '') {
+                alertify.error('Por favor, complete el campo Placa.');
+                $('#placa_e').focus(); // Enfocar el campo Placa
+                return false
+            } else if (fechaVencimiento < fechaActual) {
+                alertify.error('La fecha de vencimiento debe ser mayor o igual a la fecha actual.');
+                return false;
+            } else {
+                update();
+            }
+        });
+    });
+</script>

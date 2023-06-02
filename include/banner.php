@@ -19,13 +19,13 @@ usuarios
                   ?>
                        
                   <a type="button" class="btn btn-secondary" style="color:white;" href="?.php">
-                        <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Domicilios
+                        <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span> Obras Domesticas
                   </a>
                   <a type="button" class="btn btn-secondary" style="color:white;" href="?.php">
-                        <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Instalacion
+                        <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span> Diligencias 
                   </a>
                   <a type="button" class="btn btn-secondary" style="color:white;" href="?.php">
-                        <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Mundanzas
+                        <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span> Informática
                   </a>
                   <?php
                   }
@@ -34,17 +34,17 @@ usuarios
                   if (!isset($_SESSION['loginuser']) || empty($_SESSION['loginuser']) || $_SESSION['rol'] == 1) {
                   ?>
                         <a type="button" class="btn btn-secondary" style="color:white;" href="users.php">
-                              <span style="padding:3px;" class="glyphicon glyphicon-user"></span>Usuarios
+                              <span style="padding:3px;" class="glyphicon glyphicon-user"></span> Usuarios
                         </a>
-                        <a type="button" class="btn btn-secondary" style="color:white;" href="createof.php">
-                              <span style="padding:3px;" class="glyphicon glyphicon-list-alt"></span>Crear Oferta
+                        <a type="button" class="btn btn-secondary" style="color:white;" href="oferts.php">
+                              <span style="padding:3px;" class="glyphicon glyphicon-list-alt"></span> Ofertas
                         </a>
                   <?php
                   }
                   ?>
                   <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span>Mis preferencias
+                              <span style="padding:3px;" class="glyphicon glyphicon-th-list"></span> Mis preferencias
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                               <a class="dropdown-item" href="?.php">
@@ -61,7 +61,7 @@ usuarios
                   <div class="btn btn-group" style="margin:auto; padding-right:0;">
 
                         <a type="button" title="Home" class="btn btn-warning" style="color:white;" href="home.php">
-                              <span style="padding:1px;" class="glyphicon glyphicon-home"></span> Home
+                              <span style="padding:1px;" class="glyphicon glyphicon-home"></span> Inicio
                         </a>
 
                         <div class="btn-group" role="group">

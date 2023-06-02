@@ -1,0 +1,27 @@
+
+body
+    {
+    height: 100%;
+    background-repeat: no-repeat;
+    background: whitesmoke;
+    background-size: 100%;
+    position:auto;
+    }
+td
+{
+  font-size:small;  
+}
+.boxscroll
+{
+    padding:0px;
+    height: 75%;
+    width: auto;
+    overflow-y: scroll;
+}
+.boxscrollhome
+{
+    padding:0px;
+    height: 90%;
+    width: auto;
+    overflow-y: scroll;
+}

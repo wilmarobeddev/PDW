@@ -1,0 +1,29 @@
+
+body
+    {
+    height: 100%;
+    background-repeat: no-repeat;
+    background: url(../images/bgpdw.jpeg) no-repeat center fixed;
+    background-size: 100%;
+    position:auto;
+    }
+td
+{
+  font-size:small;  
+}
+.boxscroll
+{
+    padding:0px;
+    height: 63%;
+    width: auto;
+    overflow-y: scroll;
+    background:white;
+}
+.boxscrollhome
+{
+    padding:0px;
+    height: 74%;
+    width: auto;
+    overflow-y: scroll;
+    background:white;
+}

@@ -77,21 +77,23 @@ if (!isset($con)) {
     //if ($numrows > 0) {
     ?>
     <!------------- Scroll div ------>
-    <div class="boxscroll">
+    <div class="boxscrollpag">
         <?php
         //include("CRUD/crudusers/eliminaruser.php");
         ?>
         <table class="table table-striped">
-            <tr>
-                <th scope="row">#</th>
-                <th scope="row col-3">Nombres</th>
-                <th scope="row">Usuario</th>
-                <th scope="row">Email</th>
-                <th scope="row col-1">Us. Tipo</th>
-                <th scope="row">Fecha Creacion</th>
-                <th scope="row">Estado</th>
-                <th scope="row">Acciones</th>
-            </tr>
+            <div class="row">
+            <tr style="background-color:  rgb(9, 9, 9, 0.7); color:white; font-size:15px;">
+                    <th class="col-1 text-center"># Pag</th>
+                    <th class="col-3 ">Nombres</th>
+                    <th class="col-1 ">Usuario</th>
+                    <th class="col-2 ">Email</th>
+                    <th class="col-1  text-center">Us. Tipo</th>
+                    <th class="col-2 ">Fecha Creacion</th>
+                    <th class="col-1  text-center">Estado</th>
+                    <th class="col-1  text-center">Acciones</th>
+                </tr>
+            </div>
             <?php
             $number = 0;
             //while($row = mysqli_fetch_array($result))
@@ -118,12 +120,12 @@ if (!isset($con)) {
                         $perfil = "Admin";
                     }
                     if ($tipo == 2) {
-                        $perfil = "Colaborador";
+                        $perfil = "Auditor";
                     }
                     if ($tipo == 3) {
-                        $perfil = "Usuario";
+                        $perfil = "Inspector";
                     }
-                    
+
                     $cargardatos = $userid . "||" . $name . "||" . $lastname . "||" . $username . "||" . $email . "||" . $tipo . "||" . $dateadd . "||" . $status . "||" . $passcifred;
 
 
@@ -133,23 +135,23 @@ if (!isset($con)) {
 
                     <tbody id="myTable">
                         <tr>
-                            <td><?php echo $number ?></td>
+                            <td align="center"><?php echo $number ?></td>
                             <td><?php echo $name . ' ' . $lastname ?></td>
                             <td><?php echo $username ?></td>
                             <td><?php echo $email ?></td>
                             <td><?php echo $perfil ?></td>
                             <td><?php echo $dateadd ?></td>
-                            <td><?php echo $status ?></td>
-                            <td align="center" style="font-size: 12px; padding:0;" class="col-1">
-                                <div class="btn btn-group row">
-                                    <button onclick="ver('<?php echo $cargardatos ?>')" type="button" title="Ver Registro" class="btn btn-secondary  btn-xs" data-toggle="modal" data-target="#leeruser">
-                                        <span class="glyphicon glyphicon-eye-open"></span></a>
-                                        <button onclick="cargardatoseditar('<?php echo $cargardatos ?>')" type="button" title="Editar Registro" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#editarmodal">
-                                            <span class="glyphicon glyphicon-cog"></span></button>
-                                        <a class="btn btn-danger  btn-xs" title="Eliminar Registro" href="crudusers/eliminaruser.php?id=<?php echo $userid ?>" onclick="return confirmar('Seguro que desea eliminar este registro?!')">
-                                            <span class="glyphicon glyphicon-trash"></span></a>
-                                </div>
-                            </td>
+                            <td align="center"><?php echo $status ?></td>
+                            <td style="font-size: 10px; padding:0;" class="col-1">
+                                    <div class="btn btn-group row">
+                                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editar" onclick="agregaform('<?php echo $cargardatos ?>')">
+                                            <span class="glyphicon glyphicon-edit"></span></button>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm " onclick="return confirmar(id='<?php echo $userid; ?>')">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </div>
+                                </td>
                         </tr>
                     </tbody>
 
@@ -163,7 +165,7 @@ if (!isset($con)) {
         </table>
     </div>
 
-    <div class="d-flex justify-content-center" style="background-color:white; margin:auto; padding:0px; border-top: 1px solid #ccc">
+    <div class="text-center">
         <?php
 
         echo paginate($reload, $page, $total_pages, $adjacents);
@@ -181,35 +183,4 @@ if (!isset($con)) {
             });
         });
     });
-
-    function cargardatoseditar(cargardatos) {
-        arreglo = cargardatos.split("||");
-        $('#id').val(arreglo[0])
-        $('#nombre').val(arreglo[1])
-        $('#apellido').val(arreglo[2])
-        $('#usuario').val(arreglo[3])
-        $('#email').val(arreglo[4])
-        $('#role').val(arreglo[5])
-        $('#fecha').val(arreglo[6])
-        $('#estado').val(arreglo[7])
-        $('#pass').val(arreglo[8])
-        $('#id2').val(arreglo[0])
-    }
-
-    function ver(cargardatos) {
-        array2 = cargardatos.split("||");
-        $('#id1').val(array2[0])
-        $('#nombre1').val(array2[1])
-        $('#apellido1').val(array2[2])
-        $('#usuario1').val(array2[3])
-        $('#email1').val(array2[4])
-        $('#perfil1').val(array2[5])
-        $('#fecha1').val(array2[6])
-        $('#estado1').val(array2[7])
-        $('#pass1').val(array2[8])
-    }
-
-    function confirmar(mensaje) {
-        return (confirm(mensaje)) ? true : false;
-    }
 </script>

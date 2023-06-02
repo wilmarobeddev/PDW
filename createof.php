@@ -23,13 +23,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('a[href="users.php"]').addClass('active');
+            $('a[href="createof.php"]').addClass('active');
         });
     </script>
 </head>
 
 <body>
-    
     <!----INICIO DE CONTAINER FLUID ppal --->
     <div class="container-fluid" style="margin: auto; max-width: 100%; max-height:100%; padding: 0 10px;">
         <!-- contenido del contenedor aquí -->
@@ -42,20 +41,21 @@
         <div class="container-fluid col-11" style="background-color:white; margin: 0; max-width: 100%; max-height: 100%; padding:0; margin-top: 8px;">
             <!--DIV TITULOS PANEL CENTRO --->
             <div class="row container-fluid" style="background-color: rgb(255, 255, 255, 0.3); padding-top:15px; margin:auto;">
-            
+
                 <div class="col-6 btn-group">
                     <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#nuevo">Crear Oferta +</button>
 
                 </div>
 
                 <form class="form row" method="post">
-                <div class="btn has-warning">
-                        <span class="glyphicon glyphicon-search"></span></div>
+                    <div class="btn has-warning">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </div>
                     <div class="btn-group">
                         <input class="form-control" required name="PalabraClave" id="q" type="text" placeholder="Ofertas" onkeyup='load(1);'>
                     </div>
 
-                   
+
                 </form>
 
             </div>
@@ -65,10 +65,10 @@
             <?php
             include("crudusers/procesauser.php");
             include("crudusers/newofert.php");
-            include("crudusers/editaruser.php");
-            include("crudusers/leeruser.php");
+            //include("crudusers/editaruser.php");
+            //include("crudusers/leeruser.php");
             include("ajax/pagination.php");
-            include("include/ofertstable.php");
+            include("include/pagofertas.php");
             ?>
 
         </div>

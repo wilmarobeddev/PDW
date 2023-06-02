@@ -4,6 +4,11 @@
 include("include/header.php");
 $rutaimg = "images/icono.png"
 ?>
+<script>
+      $(document).ready(function() {
+            $("#myModal").modal("show")
+      })
+</script>
 
 <body class="bodylogin">
       <?php
@@ -19,24 +24,27 @@ $rutaimg = "images/icono.png"
       <div class="container-fluid " style="width:600px; padding:0px; margin-top:2%; margin-right:3%;">
             <?php if (isset($_POST["sublogin"])) {    ?>
 
-                  <div class="modal-dialog">
-                        <div class="modal-content">
-                              <div class="modal-header">
-                                    <h5 class="modal-title">Mensaje de alerta</h5>
-                                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                                    <a type="button" class="close" href="index.php">&times;</a>
-                              </div>
-                              <div class="modal-body alert alert-danger">
-                                    <?php if ($message != "") {
-                                          echo $message;
-                                    } ?>
-                              </div>
-                              <div class="modal-footer">
-                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
-                                    <a type="button" class="btn btn-danger" href="index.php">Cerrar!</a>
+                  <!-- modal -->
+                  <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                          <b class="modal-title">Mensaje de Error</b>
+                                          <a href="index.php" class="close">&times;</a>
+                                    </div>
+                                    <div class="modal-body alert alert-danger">
+                                          <?php if ($message != "") {
+                                                echo $message;
+                                          } ?>
+                                    </div>
+                                    <div class="modal-footer">
+                                          <a type="button" href="index.php" class="btn btn-default">Cerrar</a>
+                                    </div>
                               </div>
                         </div>
                   </div>
+                  <!-- modal -->
 
             <?php
             } ?>

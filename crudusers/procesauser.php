@@ -2,10 +2,8 @@
 if (!isset($conn)) {
     require_once('../conf/connexion.php');
     require_once('../include/header.php');
-    $saludo = $_SESSION["nombrecompleto"];
+    //$saludo = $_SESSION["nombrecompleto"];
 }
-
-if (isset($_POST['procesanuevo'])) {
 
     $nombre = mysqli_real_escape_string($conn, $_POST['firstname']);
     $apellido = mysqli_real_escape_string($conn, $_POST['lastname']);
@@ -25,81 +23,18 @@ if (isset($_POST['procesanuevo'])) {
         try {
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                $sucessmsj = "Se registro correctamente, ahora puede ingresar al portal.";
+                $respuesta = "1";
             } else {
-                $alerterror = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
+                $respuesta = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }
         } catch (Exception $e) {
-            $alerterror = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
-            echo "Error: " . $e->getMessage();
+            $respuesta = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.". $e->getMessage(); 
         }
     } else {
-        $alerterror = "Usuario ya existe!";
+        $respuesta = "Usuario ya existe!";
     }
-    
-    if (isset($alerterror)) {
-
-?>
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Error!</strong>
-            <?php
-            echo $alerterror;
-            ?>
-        </div>
-    <?php
-    }
-    if (isset($sucessmsj)) {
-
-    ?>
-        <div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>¡Bien hecho!</strong>
-            <?php
-            echo $sucessmsj;
-            ?>
-        </div>
-    <?php
-    }
-}
-//<!--------------OFERTA--------->
-if (isset($_POST['PROCESS'])) {
-    $descripcion = $_POST['descripcion'];
-    $tipo = $_POST['id_tipo'];
-  
 
 
-    $sql = "insert into oferts (descripcion,usuario,tipo) values ('$descripcion','$saludo','$tipo')";
-     $resul = mysqli_query($conn, $sql);
-    if (isset($resul)) {
-                $sucessmsj = "Oferta registrada.";
-            } else {
-                $alerterror = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
-            }
-    if (isset($alerterror)) {
-    ?>
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Error!</strong>
-            <?php
-            echo $alerterror;
-            ?>
-        </div>
-    <?php
-    }
-    if (isset($sucessmsj)) {
-
-    ?>
-        <div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>¡Bien hecho!</strong>
-            <?php
-            echo $sucessmsj;
-            ?>
-        </div>
-    <?php
-    }
-}
 //<!---------------VALIDO PROCESAEDITAR --------->
 
 if (isset($_POST['procesaeditar'])) {
